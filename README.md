@@ -2,6 +2,8 @@
 
 A Streamlit-based chat application for interacting with AI agents powered by the Strands framework and AWS Bedrock models.
 
+![](docs/image01.png)
+
 ## Overview
 
 This application provides a chat interface for interacting with various large language models (LLMs) through AWS Bedrock. It supports:
