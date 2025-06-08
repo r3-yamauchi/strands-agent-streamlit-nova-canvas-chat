@@ -1,67 +1,67 @@
-# Strands Agent Streamlit Chat App
+# Strands Agent Streamlit チャットアプリ
 
-A Streamlit-based chat application for interacting with AI agents powered by the Strands framework and AWS Bedrock models.
+StrandsフレームワークとAWS Bedrockモデルを活用したAIエージェントと対話するためのStreamlitベースのチャットアプリケーションです。
 
 ![](docs/image01.png)
 
-## Overview
+## 概要
 
-This application provides a chat interface for interacting with various large language models (LLMs) through AWS Bedrock. It supports:
+このアプリケーションは、AWS Bedrockを通じて様々な大規模言語モデル（LLM）と対話するためのチャットインターフェースを提供します。以下の機能をサポートしています：
 
-- Multiple AWS Bedrock models (Claude, Nova)
-- Image input and processing (for models that support it)
-- Tool usage through MCP (Model Context Protocol)
-- Chat history management
-- Prompt caching for improved performance
+- 複数のAWS Bedrockモデル（Claude、Nova）
+- 画像入力と処理（対応モデルのみ）
+- MCP（Model Context Protocol）を通じたツール使用
+- チャット履歴管理
+- パフォーマンス向上のためのプロンプトキャッシング
 
-## Features
+## 機能
 
-- **Multiple Model Support**: Choose from various AWS Bedrock models including Amazon Nova and Anthropic Claude models
-- **Image Processing**: Upload and process images with models that support image input
-- **Tool Integration**: Use external tools through MCP (Model Context Protocol)
-- **Chat History**: Save and load previous conversations
-- **Prompt Caching**: Optimize performance with configurable prompt caching
+- **複数モデルサポート**: Amazon NovaやAnthropic Claudeモデルなど、様々なAWS Bedrockモデルから選択可能
+- **画像処理**: 画像入力をサポートするモデルで画像のアップロードと処理が可能
+- **ツール統合**: MCP（Model Context Protocol）を通じて外部ツールを使用
+- **チャット履歴**: 過去の会話を保存・読み込み
+- **プロンプトキャッシング**: 設定可能なプロンプトキャッシングでパフォーマンスを最適化
 
-## Prerequisites
+## 前提条件
 
-- Python 3.12 or higher
-- AWS account with Bedrock access
-- Properly configured AWS credentials
-- Docker (for some MCP tools)
+- Python 3.12以上
+- Bedrockアクセス権限を持つAWSアカウント
+- 適切に設定されたAWS認証情報
+- Docker（一部のMCPツール用）
 
-## Installation
+## インストール
 
-1. Clone the repository:
+1. リポジトリをクローン：
    ```
    git clone https://github.com/moritalous/strands-agent-streamlit-chat.git
    cd strands-agent-streamlit-chat
    ```
 
-2. Install dependencies:
+2. 依存関係をインストール：
    ```
    pip install -e .
    ```
    
-   Or using uv:
+   またはuvを使用：
    ```
    uv pip install -e .
    ```
 
-## Configuration
+## 設定
 
-The application uses two main configuration files:
+アプリケーションは2つの主要な設定ファイルを使用します：
 
 ### 1. `config/config.json`
 
-Contains settings for:
-- Chat history directory
-- MCP configuration file path
-- AWS Bedrock region
-- Model configurations including:
-  - Cache support options
-  - Image support capability
+以下の設定を含みます：
+- チャット履歴ディレクトリ
+- MCP設定ファイルパス
+- AWS Bedrockリージョン
+- モデル設定（以下を含む）：
+  - キャッシュサポートオプション
+  - 画像サポート機能
 
-Example:
+例：
 ```json
 {
     "chat_history_dir": "chat_history",
@@ -86,9 +86,9 @@ Example:
 
 ### 2. `config/mcp.json`
 
-Configures MCP (Model Context Protocol) servers for tool integration:
+ツール統合のためのMCP（Model Context Protocol）サーバーを設定：
 
-Example:
+例：
 ```json
 {
     "mcpServers": {
@@ -114,50 +114,50 @@ Example:
 }
 ```
 
-## Usage
+## 使用方法
 
-1. Start the Streamlit application:
+1. Streamlitアプリケーションを起動：
    ```
    streamlit run app.py
    ```
 
-2. In the web interface:
-   - Select a model from the dropdown in the sidebar
-   - Enable/disable prompt caching as needed
-   - Select which MCP tools to use
-   - Start a new chat or continue an existing one
-   - Type messages and optionally upload images
-   - View tool usage in the chat interface
+2. Webインターフェースで：
+   - サイドバーのドロップダウンからモデルを選択
+   - 必要に応じてプロンプトキャッシングを有効/無効化
+   - 使用するMCPツールを選択
+   - 新しいチャットを開始または既存のチャットを継続
+   - メッセージを入力し、必要に応じて画像をアップロード
+   - チャットインターフェースでツールの使用状況を確認
 
-## Chat History
+## チャット履歴
 
-Chat histories are saved as YAML files in the configured chat history directory. You can:
-- Start a new chat with the "New Chat" button
-- Load previous chats by clicking on their filenames in the sidebar
+チャット履歴は設定されたチャット履歴ディレクトリにYAMLファイルとして保存されます。以下が可能です：
+- 「New Chat」ボタンで新しいチャットを開始
+- サイドバーでファイル名をクリックして過去のチャットを読み込み
 
-## MCP Tools
+## MCPツール
 
-The application supports various MCP tools:
-- AWS Documentation tools
-- Sequential thinking tools
-- Additional tools can be added through the MCP configuration
+アプリケーションは様々なMCPツールをサポートします：
+- AWSドキュメントツール
+- シーケンシャル思考ツール
+- MCP設定を通じて追加ツールを追加可能
 
-## Development
+## 開発
 
-The application is built with:
-- Streamlit for the web interface
-- Strands framework for agent capabilities
-- AWS Bedrock for LLM access
-- MCP for tool integration
+アプリケーションは以下で構築されています：
+- Streamlit（Webインターフェース）
+- Strandsフレームワーク（エージェント機能）
+- AWS Bedrock（LLMアクセス）
+- MCP（ツール統合）
 
 
-## License
+## ライセンス
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+このプロジェクトはApache License 2.0のもとでライセンスされています - 詳細は[LICENSE](LICENSE)ファイルを参照してください。
 
-## Acknowledgements
+## 謝辞
 
-- Strands Agents framework
+- Strands Agentsフレームワーク
 - AWS Bedrock
 - Streamlit
-- MCP (Model Context Protocol)
+- MCP（Model Context Protocol）

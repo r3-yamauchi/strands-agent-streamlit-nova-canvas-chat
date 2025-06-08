@@ -20,6 +20,8 @@ from strands.tools.mcp.mcp_agent_tool import MCPAgentTool
 from strands.types.content import ContentBlock, Message, Messages
 from strands.types.media import ImageFormat
 from strands_tools import current_time, http_request
+from dotenv import load_dotenv
+load_dotenv()
 
 nest_asyncio.apply()
 

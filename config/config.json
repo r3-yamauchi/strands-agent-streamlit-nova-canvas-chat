@@ -1,8 +1,16 @@
 {
     "chat_history_dir": "chat_history",
     "mcp_config_file": "config/mcp.json",
-    "bedrock_region": "us-east-1",
+    "bedrock_region": "ap-northeast-1",
     "models": {
+        "us.anthropic.claude-sonnet-4-20250514-v1:0": {
+            "cache_support": [
+                "system",
+                "messages",
+                "tools"
+            ],
+            "image_support": true
+        },
         "us.anthropic.claude-3-7-sonnet-20250219-v1:0": {
             "cache_support": [
                 "system",
