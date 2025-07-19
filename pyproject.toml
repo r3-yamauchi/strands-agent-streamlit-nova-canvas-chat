@@ -1,0 +1,18 @@
+[project]
+name = "strands-st"
+version = "0.1.0"
+description = "Strands Agent Streamlit Chat App"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "nest-asyncio>=1.6.0",
+    "pyyaml>=6.0.2",
+    "strands-agents>=1.0.0",
+    "strands-agents-tools>=0.2.1",
+    "streamlit>=1.47.0",
+    "python-dotenv>=1.0.0",
+    "Pillow>=10.0.0",
+]
+
+[tool.setuptools]
+py-modules = ["app"]

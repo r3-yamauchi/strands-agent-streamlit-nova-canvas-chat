@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+        "awslabs.nova-canvas-mcp-server": {
+            "command": "uvx",
+            "args": [
+                "awslabs.nova-canvas-mcp-server@latest"
+            ],
+            "env": {
+                "AWS_PROFILE": "r3yamauchi",
+                "AWS_REGION": "us-east-1",
+                "FASTMCP_LOG_LEVEL": "ERROR"
+            },
+            "disabled": true,
+            "autoApprove": []
+        }
+    }
+}
