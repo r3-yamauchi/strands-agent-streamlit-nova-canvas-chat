@@ -32,24 +32,6 @@ AWS BedrockのLLMモデルとAmazon Nova Canvasを統合したエンタープラ
 ### 前提条件
 - Python 3.12以上
 - AWS アカウントとBedrock アクセス権限
-- AWS認証情報の適切な設定（~/.aws/credentials または環境変数）
-
-### インストールと実行
-
-```bash
-# 依存関係のインストール
-uv pip install -e .
-# または
-pip install -e .
-
-# Streamlitアプリケーションの起動
-streamlit run app.py
-
-# 環境変数の設定（必要に応じて）
-export DEV=true  # 開発モード有効化
-export AWS_PROFILE=your-profile  # AWSプロファイル指定
-export AWS_REGION=us-east-1  # AWSリージョン指定
-```
 
 ## アプリケーションアーキテクチャ詳細
 
@@ -207,7 +189,7 @@ response = bedrock_client.invoke_model(
 3. **保守性向上**: シンプルな依存関係とエラーハンドリング
 4. **カスタマイズ容易性**: 特化した機能実装が可能
 
-### 画像データ処理の最新実装（v0.4.0）
+### 画像データ処理
 - **カスタムツールラッパー**: Strands Agentのツール実行時に画像参照を実際のデータに置換
 - **セッション状態の問題を解決**: ツールが別コンテキストで実行される問題に対応
 - **直接データ注入**: "image_1", "image_2"のような参照を自動的にBase64データに変換
@@ -231,12 +213,12 @@ response = bedrock_client.invoke_model(
 
 ## エラーハンドリングとバリデーション
 
-### 安全なツール結果解析（v0.4.1最新機能）
+### 安全なツール結果解析
 ```python
 def safe_parse_tool_result(text: str) -> dict:
     """
     ツール結果のテキストを安全にPython辞書として解析する関数。
-    
+
     JSON形式、Python辞書文字列形式、またはプレーンテキストを適切に処理します。
     """
     try:
@@ -487,4 +469,4 @@ def test_app_startup():
 - **ast.literal_eval活用**: 安全なPython辞書評価による信頼性確保
 - **包括的フォールバック**: 解析失敗時の適切なテキスト表示
 
-この実装により、MCP（Model Context Protocol）に依存しない高速で安定した包括的なAmazon Nova Canvas統合チャットアプリケーションが実現されています。特にv0.4.1では、ツール結果の解析における信頼性が大幅に向上し、アプリケーションの停止や例外発生がほぼ完全に解消されました。
+この実装により、MCP（Model Context Protocol）に依存しない高速で安定した包括的なAmazon Nova Canvas統合チャットアプリケーションが実現されています。
